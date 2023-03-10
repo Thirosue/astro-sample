@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Product from "../components/Product.astro";
+import Recommend from "../components/Recommend.astro";
+
+const products = [
+  {
+    title: "Earthen Bottle",
+    price: 48,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg",
+  },
+  {
+    title: "Nomad Tumbler",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-02.jpg",
+  },
+  {
+    title: "Focus Paper Refill",
+    price: 89,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-03.jpg",
+  },
+  {
+    title: "Machined Mechanical Pencil",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-04.jpg",
+  },
+  {
+    title: "Focus Card Tray",
+    price: 64,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-05.jpg",
+  },
+  {
+    title: "Focus Multi-Pack",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-06.jpg",
+  },
+  {
+    title: "Brass Scissors",
+    price: 50,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-07.jpg",
+  },
+  {
+    title: "Focus Carry Pouch",
+    price: 32,
+    href: "https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-08.jpg",
+  },
+];
+
+const recommends = [
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
+    color: "Black",
+  },
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
+    color: "Aspen White",
+  },
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
+    color: "Charcoal",
+  },
+  {
+    title: "Artwork Tee",
+    price: 35,
+    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
+    color: "Iso Dots",
+  },
+];
+---
+
+<Layout title="Search - Astro">
+  <main>
+    <!-- Search Results -->
+    <div class="bg-white">
+      <div
+        class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+      >
+        <h2 class="sr-only">Products</h2>
+        <div
+          class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+        >
+          {products.map((product) => <Product {...product} />)}
+        </div>
+      </div>
+    </div>
+    <!-- End Search Results -->
+
+    <!-- Recommends -->
+    <div class="bg-white">
+      <div
+        class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
+      >
+        <h2 class="text-2xl font-bold tracking-tight text-gray-900">
+          Customers also purchased
+        </h2>
+        <div
+          class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+        >
+          {recommends.map((recommend) => <Recommend {...recommend} />)}
+        </div>
+      </div>
+    </div>
+    <!-- End Recommends -->
+  </main>
+</Layout>
