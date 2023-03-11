@@ -1,33 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Recommend from "../components/Recommend.astro";
+import { getNewArrivals } from "../lib/getNewArrivals";
 
-const recommends = [
-  {
-    title: "Basic Tee",
-    price: 35,
-    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    color: "Black",
-  },
-  {
-    title: "Basic Tee",
-    price: 35,
-    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-02.jpg",
-    color: "Aspen White",
-  },
-  {
-    title: "Basic Tee",
-    price: 35,
-    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-03.jpg",
-    color: "Charcoal",
-  },
-  {
-    title: "Artwork Tee",
-    price: 35,
-    href: "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-04.jpg",
-    color: "Iso Dots",
-  },
-];
+const newArrivals = await getNewArrivals();
 ---
 
 <Layout title="Top - Astro">
@@ -202,7 +177,7 @@ const recommends = [
           <div class="lg:col-span-4 mt-10 lg:mt-0">
             <img
               class="w-full rounded-xl"
-              src="https://images.unsplash.com/photo-1665686376173-ada7a0031a85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=900&h=700&q=80"
+              src="https://thirosue.github.io/hosting-image2/astro-sample/top.jpeg"
               alt="Image Description"
             />
           </div>
@@ -214,7 +189,7 @@ const recommends = [
     </div>
 
     <!-- Recommend Section -->
-    <div class="bg-white">
+    <!-- <div class="bg-white">
       <div
         class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
       >
@@ -224,10 +199,19 @@ const recommends = [
         <div
           class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
         >
-          {recommends.map((recommend) => <Recommend {...recommend} />)}
+          {
+            newArrivals.data
+              .slice(0, 4)
+              .map((item) => (
+                <Recommend
+                  {...item}
+                  href={`https://thirosue.github.io/hosting-image2/astro-sample/product/${item.id}/main.jpeg`}
+                />
+              ))
+          }
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- End Recommend Section -->
 
     <!-- Card Blog -->
@@ -242,7 +226,7 @@ const recommends = [
             >
               <img
                 class="group-hover:scale-105 transition-transform duration-500 ease-in-out w-full h-full absolute top-0 left-0 object-cover rounded-xl"
-                src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                src="https://thirosue.github.io/hosting-image2/bit-react-tutorial/1.jpg"
                 alt="Image Description"
               />
             </div>
@@ -288,7 +272,7 @@ const recommends = [
             >
               <img
                 class="group-hover:scale-105 transition-transform duration-500 ease-in-out w-full h-full absolute top-0 left-0 object-cover rounded-xl"
-                src="https://images.unsplash.com/photo-1668906093328-99601a1aa584?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80"
+                src="https://thirosue.github.io/hosting-image2/bit-react-tutorial/2.jpg"
                 alt="Image Description"
               />
             </div>
@@ -334,7 +318,7 @@ const recommends = [
             >
               <img
                 class="group-hover:scale-105 transition-transform duration-500 ease-in-out w-full h-full absolute top-0 left-0 object-cover rounded-xl"
-                src="https://images.unsplash.com/photo-1567016526105-22da7c13161a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                src="https://thirosue.github.io/hosting-image2/bit-react-tutorial/3.jpg"
                 alt="Image Description"
               />
             </div>
@@ -379,7 +363,7 @@ const recommends = [
             >
               <img
                 class="group-hover:scale-105 transition-transform duration-500 ease-in-out w-full h-full absolute top-0 left-0 object-cover rounded-xl"
-                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                src="https://thirosue.github.io/hosting-image2/bit-react-tutorial/4.jpg"
                 alt="Image Description"
               />
             </div>
