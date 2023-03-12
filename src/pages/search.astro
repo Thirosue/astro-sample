@@ -1,5 +1,77 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Product from "../components/Product.astro";
+import Recommend from "../components/Recommend.astro";
+
+const products = [
+  {
+    title: "Earthen Bottle",
+    price: 48,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/9/main.jpeg",
+  },
+  {
+    title: "Nomad Tumbler",
+    price: 35,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/10/main.jpeg",
+  },
+  {
+    title: "Focus Paper Refill",
+    price: 89,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/11/main.jpeg",
+  },
+  {
+    title: "Machined Mechanical Pencil",
+    price: 35,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/12/main.jpeg",
+  },
+  {
+    title: "Focus Card Tray",
+    price: 64,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/13/main.jpeg",
+  },
+  {
+    title: "Focus Multi-Pack",
+    price: 35,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/14/main.jpeg",
+  },
+  {
+    title: "Brass Scissors",
+    price: 50,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/15/main.jpeg",
+  },
+  {
+    title: "Focus Carry Pouch",
+    price: 32,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/16/main.jpeg",
+  },
+];
+
+const recommends = [
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/5/main.jpeg",
+    color: ["White", "Black"],
+  },
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/6/main.jpeg",
+    color: ["Aspen White"],
+  },
+  {
+    title: "Basic Tee",
+    price: 35,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/7/main.jpeg",
+    color: ["Charcoal"],
+  },
+  {
+    title: "Artwork Tee",
+    price: 35,
+    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/8/main.jpeg",
+    color: ["Iso Dots"],
+  },
+];
 ---
 
 <Layout title="Search - Astro">
@@ -13,112 +85,7 @@ import Layout from "../layouts/Layout.astro";
         <div
           class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
         >
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/9/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">Earthen Bottle</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$48</p>
-          </a>
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/10/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">Nomad Tumbler</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-          </a>
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/11/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">
-              Machined Mechanical Pencil
-            </h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$89</p>
-          </a>
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/12/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">Focus Paper Refill</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-          </a>
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/13/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">Focus Card Tray</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$64</p>
-          </a>
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/14/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">Focus Multi-Pack</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$35</p>
-          </a>
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/15/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">Brass Scissors</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$50</p>
-          </a>
-          <a href="#" class="group">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/16/main.jpeg"
-                alt="Hand holding black machined steel mechanical pencil with brass tip and top."
-                class="h-full w-full object-cover object-center group-hover:opacity-75"
-              />
-            </div>
-            <h3 class="mt-4 text-sm text-gray-700">Focus Carry Pouch</h3>
-            <p class="mt-1 text-lg font-medium text-gray-900">$32</p>
-          </a>
+          {products.map((product) => <Product {...product} />)}
         </div>
       </div>
     </div>
@@ -135,98 +102,7 @@ import Layout from "../layouts/Layout.astro";
         <div
           class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
         >
-          <div class="group relative">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/5/main.jpeg"
-                alt="Front of men's Basic Tee in black."
-                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-              />
-            </div>
-            <div class="mt-4 flex justify-between">
-              <div>
-                <h3 class="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" class="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p class="mt-1 text-sm text-gray-500">white, black</p>
-              </div>
-              <p class="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
-          <div class="group relative">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/6/main.jpeg"
-                alt="Front of men's Basic Tee in black."
-                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-              />
-            </div>
-            <div class="mt-4 flex justify-between">
-              <div>
-                <h3 class="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" class="absolute inset-0"></span>
-                    Aspen White
-                  </a>
-                </h3>
-                <p class="mt-1 text-sm text-gray-500">Aspen White</p>
-              </div>
-              <p class="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
-          <div class="group relative">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/7/main.jpeg"
-                alt="Front of men's Basic Tee in black."
-                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-              />
-            </div>
-            <div class="mt-4 flex justify-between">
-              <div>
-                <h3 class="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" class="absolute inset-0"></span>
-                    Basic Tee
-                  </a>
-                </h3>
-                <p class="mt-1 text-sm text-gray-500">Charcoal</p>
-              </div>
-              <p class="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
-          <div class="group relative">
-            <div
-              class="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:aspect-none lg:h-80"
-            >
-              <img
-                src="https://thirosue.github.io/hosting-image2/astro-sample/product/8/main.jpeg"
-                alt="Front of men's Basic Tee in black."
-                class="h-full w-full object-cover object-center lg:h-full lg:w-full"
-              />
-            </div>
-            <div class="mt-4 flex justify-between">
-              <div>
-                <h3 class="text-sm text-gray-700">
-                  <a href="#">
-                    <span aria-hidden="true" class="absolute inset-0"></span>
-                    Artwork Tee
-                  </a>
-                </h3>
-                <p class="mt-1 text-sm text-gray-500">Iso Dots</p>
-              </div>
-              <p class="text-sm font-medium text-gray-900">$35</p>
-            </div>
-          </div>
+          {recommends.map((recommend) => <Recommend {...recommend} />)}
         </div>
       </div>
     </div>
