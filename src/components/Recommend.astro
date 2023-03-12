@@ -1,12 +1,13 @@
 ---
 export interface Props {
+  id: number;
   title: string;
   price: number;
   color: string[];
   href: string;
 }
 
-const { href, title, color, price } = Astro.props;
+const { id, href, title, color, price } = Astro.props;
 ---
 
 <div class="group relative">
@@ -22,7 +23,7 @@ const { href, title, color, price } = Astro.props;
   <div class="mt-4 flex justify-between">
     <div>
       <h3 class="text-sm text-gray-700">
-        <a href="#">
+        <a href={`/product/${id}`}>
           <span aria-hidden="true" class="absolute inset-0"></span>
           {title}
         </a>
