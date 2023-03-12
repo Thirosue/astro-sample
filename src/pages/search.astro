@@ -1,60 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Product from "../components/Product.astro";
 import Recommend from "../components/Recommend.astro";
+import { ProductList } from "../components/ProductList";
 
 import { getRecommends } from "../lib/getRecommends";
-
-const products = [
-  {
-    id: 9,
-    title: "Earthen Bottle",
-    price: 48,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/9/main.jpeg",
-  },
-  {
-    id: 10,
-    title: "Nomad Tumbler",
-    price: 35,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/10/main.jpeg",
-  },
-  {
-    id: 11,
-    title: "Focus Paper Refill",
-    price: 89,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/11/main.jpeg",
-  },
-  {
-    id: 12,
-    title: "Machined Mechanical Pencil",
-    price: 35,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/12/main.jpeg",
-  },
-  {
-    id: 13,
-    title: "Focus Card Tray",
-    price: 64,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/13/main.jpeg",
-  },
-  {
-    id: 14,
-    title: "Focus Multi-Pack",
-    price: 35,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/14/main.jpeg",
-  },
-  {
-    id: 15,
-    title: "Brass Scissors",
-    price: 50,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/15/main.jpeg",
-  },
-  {
-    id: 16,
-    title: "Focus Carry Pouch",
-    price: 32,
-    href: "https://thirosue.github.io/hosting-image2/astro-sample/product/16/main.jpeg",
-  },
-];
 
 const recommends = await getRecommends();
 ---
@@ -67,11 +16,7 @@ const recommends = await getRecommends();
         class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
       >
         <h2 class="sr-only">Products</h2>
-        <div
-          class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
-        >
-          {products.map((product) => <Product {...product} />)}
-        </div>
+        <ProductList client:only="react" />
       </div>
     </div>
     <!-- End Search Results -->
