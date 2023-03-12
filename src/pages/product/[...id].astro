@@ -1,8 +1,19 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import ColorLabel from "../../components/ColorLabel.astro";
+import { getProduct } from "../../lib/getProduct";
 
-const { entry } = Astro.props;
-console.log(entry);
+const product = await getProduct(Astro.params.id);
+
+console.log(product);
+
+// 商品（Produt）が見つからなかった
+if (!product) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Not found",
+  });
+}
 ---
 
 <Layout title="Product - Astro">
@@ -54,7 +65,7 @@ console.log(entry);
               href="#"
               aria-current="page"
               class="font-medium text-gray-500 hover:text-gray-600"
-              >Basic Tee 6-Pack</a
+              >{product.title}</a
             >
           </li>
         </ol>
@@ -68,7 +79,7 @@ console.log(entry);
           class="aspect-w-3 aspect-h-4 hidden overflow-hidden rounded-lg lg:block"
         >
           <img
-            src="https://thirosue.github.io/hosting-image2/astro-sample/product/1/main.jpeg"
+            src={`https://thirosue.github.io/hosting-image2/astro-sample/product/${product.id}/main.jpeg`}
             alt="Two each of gray, white, and black shirts laying flat."
             class="h-full w-full object-cover object-center"
           />
@@ -108,14 +119,16 @@ console.log(entry);
           <h1
             class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl"
           >
-            Basic Tee 6-Pack
+            {product.title}
           </h1>
         </div>
 
         <!-- Options -->
         <div class="mt-4 lg:row-span-3 lg:mt-0">
           <h2 class="sr-only">Product information</h2>
-          <p class="text-3xl tracking-tight text-gray-900">$192</p>
+          <p class="text-3xl tracking-tight text-gray-900">
+            ${product.price.toLocaleString()}
+          </p>
 
           <!-- Reviews -->
           <div class="mt-6">
@@ -200,72 +213,7 @@ console.log(entry);
               <fieldset class="mt-4">
                 <legend class="sr-only">Choose a color</legend>
                 <div class="flex items-center space-x-3">
-                  <!--
-                    Active and Checked: "ring ring-offset-1"
-                    Not Active and Checked: "ring-2"
-                  -->
-                  <label
-                    class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
-                  >
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="White"
-                      class="sr-only"
-                      aria-labelledby="color-choice-0-label"
-                    />
-                    <span id="color-choice-0-label" class="sr-only">
-                      White
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 bg-white rounded-full border border-black border-opacity-10"
-                    ></span>
-                  </label>
-
-                  <!--
-                    Active and Checked: "ring ring-offset-1"
-                    Not Active and Checked: "ring-2"
-                  -->
-                  <label
-                    class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
-                  >
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="Gray"
-                      class="sr-only"
-                      aria-labelledby="color-choice-1-label"
-                    />
-                    <span id="color-choice-1-label" class="sr-only"> Gray</span>
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 bg-gray-200 rounded-full border border-black border-opacity-10"
-                    ></span>
-                  </label>
-
-                  <!--
-                    Active and Checked: "ring ring-offset-1"
-                    Not Active and Checked: "ring-2"
-                  -->
-                  <label
-                    class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-900"
-                  >
-                    <input
-                      type="radio"
-                      name="color-choice"
-                      value="Black"
-                      class="sr-only"
-                      aria-labelledby="color-choice-2-label"
-                    />
-                    <span id="color-choice-2-label" class="sr-only">
-                      Black
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      class="h-8 w-8 bg-gray-900 rounded-full border border-black border-opacity-10"
-                    ></span>
-                  </label>
+                  {product.color.map((color) => <ColorLabel value={color} />)}
                 </div>
               </fieldset>
             </div>

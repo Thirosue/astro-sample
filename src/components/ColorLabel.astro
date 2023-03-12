@@ -1,0 +1,28 @@
+---
+type Color = "white" | "black" | "gray";
+
+const { value } = Astro.props as { value: Color };
+
+const className = {
+  white: "bg-white",
+  black: "bg-gray-900",
+  gray: "bg-gray-200",
+};
+---
+
+<label
+  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
+>
+  <input
+    type="radio"
+    name="color-choice"
+    value="White"
+    class="sr-only"
+    aria-labelledby="color-choice-0-label"
+  />
+  <span id="color-choice-0-label" class="sr-only">{value}</span>
+  <span
+    aria-hidden="true"
+    class={`h-8 w-8 ${className[value]} rounded-full border border-black border-opacity-10`}
+  ></span>
+</label>
