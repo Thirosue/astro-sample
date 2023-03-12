@@ -1,8 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { getNewArrivals } from "../lib/getNewArrivals";
-
-const newArrivals = await getNewArrivals();
 ---
 
 <Layout title="Top - Astro">
@@ -187,32 +184,6 @@ const newArrivals = await getNewArrivals();
       </div>
       <!-- End Hero -->
     </div>
-
-    <!-- Recommend Section -->
-    <!-- <div class="bg-white">
-      <div
-        class="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8"
-      >
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900">
-          New Arrival
-        </h2>
-        <div
-          class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
-        >
-          {
-            newArrivals.data
-              .slice(0, 4)
-              .map((item) => (
-                <Recommend
-                  {...item}
-                  href={`https://thirosue.github.io/hosting-image2/astro-sample/product/${item.id}/main.jpeg`}
-                />
-              ))
-          }
-        </div>
-      </div>
-    </div> -->
-    <!-- End Recommend Section -->
 
     <!-- Card Blog -->
     <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
