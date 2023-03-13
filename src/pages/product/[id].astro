@@ -1,19 +1,19 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ColorLabel from "../../components/ColorLabel.astro";
-import { getProduct } from "../../lib/getProduct";
+import { Product, getProducts } from "../../lib/getProducts";
 
-const product = await getProduct(Astro.params.id);
+export async function getStaticPaths() {
+  const products = await getProducts();
 
-console.log(product);
-
-// 商品（Produt）が見つからなかった
-if (!product) {
-  return new Response(null, {
-    status: 404,
-    statusText: "Not found",
-  });
+  return products.map((product) => ({
+    params: { id: product.id },
+    props: { product: products.find((p) => p.id === product.id) },
+  }));
 }
+export const prerender = true;
+
+const { product } = Astro.props as { product: Product };
 ---
 
 <Layout title="Product - Astro">

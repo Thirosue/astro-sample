@@ -9,4 +9,10 @@ export default defineConfig({
   output: "server",
   adapter: vercel(),
   integrations: [tailwind(), react()],
+  vite: {
+    ssr: {
+      // 例: 必要な場合、壊れたパッケージが SSR の処理を行うのをスキップさせます
+      external: ["broken-npm-package"],
+    },
+  },
 });
