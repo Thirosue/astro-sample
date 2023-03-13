@@ -4,6 +4,8 @@ import Recommend from "../components/Recommend.astro";
 
 import { getNewArrivals } from "../lib/getNewArrivals";
 
+export const prerender = true;
+
 const newArrivals = await getNewArrivals();
 ---
 

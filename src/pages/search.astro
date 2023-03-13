@@ -5,6 +5,8 @@ import { ProductList } from "../components/ProductList";
 
 import { getRecommends } from "../lib/getRecommends";
 
+export const prerender = true;
+
 const recommends = await getRecommends();
 ---
 
