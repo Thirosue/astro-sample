@@ -21,6 +21,7 @@
     ]
   },
   "dependencies": {
+    "@astrojs/deno": "^4.1.0",
     "@astrojs/react": "^2.1.0",
     "@astrojs/tailwind": "^3.1.0",
     "@astrojs/vercel": "^3.2.0",
